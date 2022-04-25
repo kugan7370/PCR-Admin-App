@@ -3,11 +3,21 @@
 }
 
 .bg-theme{
-    background-color: #f4f5f7;
-    color: black;
+    background:#ffffff;
+ 
 }
 .profile-img{
 height: 30px;
 width: 30px;
 
+}
+.admin-text{
+    font-size: 10px;
+}
+.logo-image{
+height: 40px;
+width: 40px;
+}
+.logo-title{
+    color: #64668a;
 }

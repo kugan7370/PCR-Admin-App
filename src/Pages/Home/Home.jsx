@@ -1,7 +1,11 @@
 import React from 'react'
+import { Col, Row } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import './Home.css'
+
+
+
 
 function Home() {
     const users = useSelector((state) => state.authUser);
@@ -11,21 +15,29 @@ function Home() {
 
     return (
         <main className='main-home'>
-            <div className="container">
-                <header className="pb-3 mb-4  border-bottom">
-                    <h3 className="text-center">Welcome </h3>
-                </header>
+            <div className="container ">
+                <Row>
+                    <Col lg={3}>
+                        <img className=' img-fluid' src="../Images/Screenshot_20220406-234113_Expo Go.jpg" alt="" srcset="" />
+                    </Col>
 
-                <div className="p-5  bg-light rounded-3">
-                    <div className="container-fluid py-5">
-                        <h1 className="display-5 fw-bold">Custom jumbotron</h1>
-                        <p className="col-md-8 fs-4">Using a series of utilities, you can create this jumbotron, just like the one in previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your liking.</p>
+                    <Col lg={3}>
+                        <img className=' img-fluid' src="../Images/Screenshot_20220406-234120_Expo Go.jpg" alt="" srcset="" />
+                    </Col>
+                    <Col lg={3}>
+                        <img className=' img-fluid' src="../Images/Screenshot_20220406-234127_Expo Go.jpg" alt="" srcset="" />
+                    </Col>
+                    <Col lg={3}>
+                        <img className=' img-fluid' src="../Images/Screenshot_20220406-234137_Expo Go.jpg" alt="" srcset="" />
+                    </Col>
 
-                    </div>
-                </div>
-
+                </Row>
 
             </div>
+
+
+
+
         </main>
 
     )

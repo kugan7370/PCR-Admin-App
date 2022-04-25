@@ -1,11 +1,13 @@
 .sidebar-container{
    
     height: calc(100vh - 62px);
-     background-color: #f4f5f7;
+     background-color: #022c7b;  /*#f3f6fd*/
+     color: #ffff;
      
    
  }
  .main-container{
-     background-color: white;
+     background-color:#ffff;
+     border-radius: 20px;
     
  }

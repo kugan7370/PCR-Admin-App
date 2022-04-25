@@ -75,9 +75,12 @@ export default function Header() {
 
     return (
         <div  >
-            <Navbar collapseOnSelect expand="lg" className='bg-theme nav-height' >
+            <Navbar collapseOnSelect expand="lg" className='bg-theme nav-height  shadow-sm' >
                 <Container fluid>
-                    <Navbar.Brand href="#home">Admin Panal</Navbar.Brand>
+                    <Navbar.Brand href="#home">
+                        <img src="https://cutewallpaper.org/24/cr-logo-cliparts/192999150.jpg" className='logo-image' alt="" srcset="" />
+                    </Navbar.Brand>
+                    <Navbar.Brand href="#home" className='logo-title'>Admin Panal</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="ms-auto">
@@ -86,7 +89,12 @@ export default function Header() {
                                     <div className="profile-img">
                                         <img src={userData.pro_pic} className='img-fluid h-100 w-100 rounded-circle' alt="" />
                                     </div>
-                                    <span className='ms-2' >{userData.username}</span>
+                                    <div className=" d-flex flex-column">
+                                        <span className='ms-2 fw-bold' >{userData.username}</span>
+                                        <span className='ms-2 admin-text fw-bold' >Admin</span>
+
+                                    </div>
+
                                 </Nav.Link> :
                                 <Nav.Link className='d-flex align-items-center' onClick={googleSign} >Login </Nav.Link>
 

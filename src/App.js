@@ -34,7 +34,7 @@ function App() {
 
       <Row >
         {isUser &&
-          <Col lg={2} sm={4} className="sidebar-container  shadow-lg" >
+          <Col lg={2} sm={4} className="sidebar-container shadow-lg" >
             <Sidebar />
           </Col>}
 

@@ -1,0 +1,22 @@
+.card-1{
+background-color: #f65858;
+color: whitesmoke;
+}
+.card-2{
+    background-color: #29cb97;
+    color: whitesmoke;
+    }
+    .card-3{
+        background-color: #ff9838;
+        color: whitesmoke;
+        }
+        .card-4{
+            background-color: #77c6e5;
+            color: whitesmoke;
+            }
+
+        .d-image{
+            height: 350px;
+            width: '80%';
+            object-fit: cover;
+        }
