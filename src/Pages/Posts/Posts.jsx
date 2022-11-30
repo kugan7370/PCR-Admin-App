@@ -1,5 +1,7 @@
 import {
   collection,
+  deleteDoc,
+  doc,
   onSnapshot,
   orderBy,
   query,
@@ -13,16 +15,29 @@ import { DataGrid } from "@material-ui/data-grid";
 import Moment from "react-moment";
 import { DeleteForeverOutlined } from "@material-ui/icons";
 import { Button, Modal } from "react-bootstrap";
-
+import { async } from "@firebase/util";
+import { useConfirm } from "material-ui-confirm";
 function Posts() {
   const [PostData, setPostData] = useState([]);
-  const [show, setShow] = useState(false);
+  const confirm = useConfirm();
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleDelete = async (id) => {
+    confirm({ description: "This action is permanent!" })
+      .then(() => {
+        const docRef = doc(db, "blogs", id);
+        deleteDoc(docRef)
+          .then(() => {
+            console.log("deleted successfully.");
+          })
+          .catch((error) => {
+            console.log(error);
+          });
 
-  const handleDelete = (id) => {
-    console.log(id);
+        console.log(id);
+      })
+      .catch(() => {
+        /* ... */
+      });
   };
 
   useEffect(() => {
@@ -47,7 +62,7 @@ function Posts() {
     // { field: 'id', headerName: 'id', width: 90 },
     {
       field: "title",
-      headerName: "title",
+      headerName: "Title",
       width: 150,
       editable: true,
       renderCell: (params) => (
@@ -56,12 +71,6 @@ function Posts() {
           {params.row.title}
         </div>
       ),
-    },
-    {
-      field: "title",
-      headerName: "title",
-      width: 150,
-      editable: true,
     },
     {
       field: "category",
@@ -116,29 +125,12 @@ function Posts() {
       editable: true,
 
       renderCell: (params) => (
-        <>
-          <Button variant="white" onClick={handleShow} className="text-center">
-            <DeleteForeverOutlined className="text-danger" />
-          </Button>
-
-          <Modal show={show} onHide={handleClose}>
-            <Modal.Header closeButton>
-              <Modal.Title>Confirm</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>Are you sure to delete?</Modal.Body>
-            <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
-                Close
-              </Button>
-              <Button
-                variant="primary"
-                onClick={() => handleDelete(params.row.id)}
-              >
-                Delete
-              </Button>
-            </Modal.Footer>
-          </Modal>
-        </>
+        <div
+          onClick={() => handleDelete(params.row.id)}
+          className="text-center p-2 bottom-0"
+        >
+          <DeleteForeverOutlined className="text-danger" />
+        </div>
       ),
     },
   ];
