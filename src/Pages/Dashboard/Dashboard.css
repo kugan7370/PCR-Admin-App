@@ -1,18 +1,22 @@
 .card-1{
 background-color: #f65858;
 color: whitesmoke;
+cursor: pointer;
 }
 .card-2{
     background-color: #29cb97;
     color: whitesmoke;
+    cursor: pointer;
     }
     .card-3{
         background-color: #ff9838;
         color: whitesmoke;
+        cursor: pointer;
         }
         .card-4{
             background-color: #77c6e5;
             color: whitesmoke;
+            cursor: pointer;
             }
 
         .d-image{
