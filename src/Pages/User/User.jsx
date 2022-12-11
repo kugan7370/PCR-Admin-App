@@ -69,7 +69,7 @@ function User() {
     <div className="mt-2" style={{ height: "95%", width: "100%" }}>
       <h4>Users</h4>
       <div style={{ height: "100%", width: "100%" }}>
-        {userData && (
+        {userData?.length > 0 && (
           <DataGrid
             rows={userData}
             columns={columns}
